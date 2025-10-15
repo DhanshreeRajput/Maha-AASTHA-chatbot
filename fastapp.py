@@ -1168,7 +1168,7 @@ async def get_supported_languages():
 
 @app.get("/debug/sessions")
 async def debug_sessions():
-    """Debug endpoint to check current session states."""
+    """Debugs endpoint to check current session states."""
     return {
         "total_sessions": len(USER_SESSION_STATE),
         "sessions": USER_SESSION_STATE,
