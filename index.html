@@ -258,6 +258,209 @@
             box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
         }
 
+        /* Grievance Form */
+        .grievance-form {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 48px 0;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            padding: 0 16px;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        .progress-step.active {
+            color: var(--primary);
+        }
+
+        .progress-step.completed {
+            color: var(--success);
+        }
+
+        .progress-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .progress-step.active .progress-circle {
+            background: var(--primary);
+            color: white;
+        }
+
+        .progress-step.completed .progress-circle {
+            background: var(--success);
+            color: white;
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+        }
+
+        .form-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .required {
+            color: var(--error);
+        }
+
+        .priority-chip {
+            display: inline-block;
+            padding: 10px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-low {
+            background: #E5E7EB;
+            color: #374151;
+        }
+
+        .priority-mid {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .priority-high {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--line);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary);
+        }
+
+        .file-list {
+            margin-top: 16px;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: var(--bg);
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .file-remove {
+            background: var(--error);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .confirmation-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 24px 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .submit-btn:disabled {
+            background: var(--line);
+            color: var(--muted);
+            cursor: not-allowed;
+        }
+
         /* Quick Access */
         .quick-access {
             display: grid;
@@ -431,6 +634,43 @@
             margin: 0;
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 300;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            color: var(--success);
+            margin-bottom: 16px;
+        }
+
+        .modal .btn {
+            margin-top: 24px;
+        }
+
         /* Footer */
         .footer {
             background: var(--primary);
@@ -477,8 +717,8 @@
         /* ==================== CHATBOT STYLES ==================== */
         .chat-widget {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 58px;
+            right: 13px;
             z-index: 10000;
         }
 
@@ -540,7 +780,7 @@
 
         .chat-window {
             position: fixed;
-            bottom: 103px;
+            bottom: 140px;
             right: 20px;
             width: 380px;
             height: 500px;
@@ -931,7 +1171,7 @@
             stroke-width: 1;
         }
 
-        .star.hover svg {
+        .star.hover svg {  
             fill: #fcd34d;
             stroke: #f59e0b;
             stroke-width: 1;
@@ -1183,6 +1423,19 @@
             .stats {
                 grid-template-columns: 1fr;
             }
+             .form-progress {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .progress-step {
+                font-size: 12px;
+            }
+
+            .grievance-form {
+                padding: 20px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1315,6 +1568,209 @@
             </div>
         </section>
 
+        <!-- Grievance Form -->
+        <section class="section" id="grievance">
+            <div class="container">
+                <h2 class="section-title">Create Grievance</h2>
+                <form class="grievance-form" id="grievanceForm">
+                    <!-- Progress Indicator -->
+                    <div class="form-progress">
+                        <div class="progress-step active" data-step="A">
+                            <div class="progress-circle">A</div>
+                            <span>User Info</span>
+                        </div>
+                        <div class="progress-step" data-step="B">
+                            <div class="progress-circle">B</div>
+                            <span>Role</span>
+                        </div>
+                        <div class="progress-step" data-step="C">
+                            <div class="progress-circle">C</div>
+                            <span>Details</span>
+                        </div>
+                        <div class="progress-step" data-step="D">
+                            <div class="progress-circle">D</div>
+                            <span>Documents</span>
+                        </div>
+                        <div class="progress-step" data-step="E">
+                            <div class="progress-circle">E</div>
+                            <span>Confirm</span>
+                        </div>
+                        <div class="progress-step" data-step="F">
+                            <div class="progress-circle">F</div>
+                            <span>Submit</span>
+                        </div>
+                    </div>
+
+                    <!-- Section A: User Information -->
+                    <div class="form-section" id="sectionA">
+                        <h3>A. User Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="employeeId">Employee ID <span class="required">*</span></label>
+                                <input type="text" id="employeeId" name="employeeId" placeholder="Enter your Employee ID" required aria-describedby="employeeIdError">
+                                <div class="error-message" id="employeeIdError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeName">Name of Employee <span class="required">*</span></label>
+                                <input type="text" id="employeeName" name="employeeName" placeholder="Enter your full name" required aria-describedby="employeeNameError">
+                                <div class="error-message" id="employeeNameError"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="designation">Designation <span class="required">*</span></label>
+                                <input type="text" id="designation" name="designation" placeholder="Enter your designation" required aria-describedby="designationError">
+                                <div class="error-message" id="designationError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department <span class="required">*</span></label>
+                                <input type="text" id="department" name="department" placeholder="Enter your department" required aria-describedby="departmentError">
+                                <div class="error-message" id="departmentError"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="officeName">Office Name <span class="required">*</span></label>
+                                <input type="text" id="officeName" name="officeName" placeholder="Enter your office name" required aria-describedby="officeNameError">
+                                <div class="error-message" id="officeNameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="districtName">District Name <span class="required">*</span></label>
+                                <input type="text" id="districtName" name="districtName" placeholder="Enter your district name" required aria-describedby="districtNameError">
+                                <div class="error-message" id="districtNameError"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mobileNumber">Mobile Number <span class="required">*</span></label>
+                                <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter your 10-digit mobile number" required pattern="[0-9]{10,13}" aria-describedby="mobileNumberError mobileNumberHint">
+                                <div id="mobileNumberHint" style="font-size: 12px; color: var(--muted);">Enter 10-13 digit mobile number</div>
+                                <div class="error-message" id="mobileNumberError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="officialEmail">Official Email ID <span class="required">*</span></label>
+                                <input type="email" id="officialEmail" name="officialEmail" placeholder="Enter your official email address" required aria-describedby="officialEmailError officialEmailHint">
+                                <div id="officialEmailHint" style="font-size: 12px; color: var(--muted);">example@dept.gov.in</div>
+                                <div class="error-message" id="officialEmailError"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section B: Role Selection -->
+                    <div class="form-section" id="sectionB">
+                        <h3>B. Role Selection</h3>
+                        <div class="">
+                            <div class="form-group">
+                                <label for="userRole">Select Your Role <span class="required">*</span></label>
+                                <select id="userRole" name="userRole" required aria-describedby="userRoleError">
+                                    <option value="">-- Select Role --</option>
+                                    <option value="HDS Executive">HDS Executive</option>
+                                    <option value="Data Entry Operation">Data Entry Operation</option>
+                                    <option value="Drawing & Disbursing Officer">Drawing & Disbursing Officer</option>
+                                    <option value="Departmental Maha-AASTHA Desk Nodal Officer">Departmental Maha-AASTHA Desk Nodal Officer</option>
+                                    <option value="Employee">Employee</option>
+                                </select>
+                                <div class="error-message" id="userRoleError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Computed Priority</label>
+                                <div id="priorityDisplay" class="priority-chip priority-low">Low</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section C: Complaint Details -->
+                    <div class="form-section" id="sectionC">
+                        <h3>C. Complaint Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueTimestamp">Date & Time Stamp of Issue Logged</label>
+                                <input type="datetime-local" id="issueTimestamp" name="issueTimestamp">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueCategory">Issue Category <span class="required">*</span></label>
+                                <select id="issueCategory" name="issueCategory" required aria-describedby="issueCategoryError">
+                                    <option value="">-- Select Category --</option>
+                                </select>
+                                <div class="error-message" id="issueCategoryError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="issueSubCategory">Issue Sub-Category <span class="required">*</span></label>
+                                <select id="issueSubCategory" name="issueSubCategory" required aria-describedby="issueSubCategoryError">
+                                    <option value="">-- Select Sub-Category --</option>
+                                </select>
+                                <div class="error-message" id="issueSubCategoryError"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueRelated">Select Issue Related To <span class="required">*</span></label>
+                                <select id="issueRelated" name="issueRelated" required aria-describedby="issueRelatedError">
+                                    <option value="">-- Select Issue Related To --</option>
+                                </select>
+                                <div class="error-message" id="issueRelatedError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="issueSection">Select Section (Module / E-Order / etc.)</label>
+                                <select id="issueSection" name="issueSection" aria-describedby="issueSectionError">
+                                    <option value="">-- Select Section --</option>
+                                </select>
+                                <div class="error-message" id="issueSectionError"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueSubSection">Select Sub-Section (Sections of Service Book)</label>
+                                <select id="issueSubSection" name="issueSubSection" aria-describedby="issueSubSectionError">
+                                    <option value="">-- Select Sub-Section --</option>
+                                </select>
+                                <div class="error-message" id="issueSubSectionError"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="issueSubject">Subject (Complaint Title) <span class="required">*</span></label>
+                            <input type="text" id="issueSubject" name="issueSubject" placeholder="Enter a brief subject for your grievance" required maxlength="120" aria-describedby="issueSubjectError issueSubjectCounter">
+                            <div id="issueSubjectCounter" style="font-size: 12px; color: var(--muted); text-align: right;">0/120</div>
+                            <div class="error-message" id="issueSubjectError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="issueDescription">Detailed Description of Issue <span class="required">*</span></label>
+                            <textarea id="issueDescription" name="issueDescription" placeholder="Please provide a detailed description of your issue. Include relevant dates, people involved, and any other important details." required rows="5" minlength="30" aria-describedby="issueDescriptionError issueDescriptionHint"></textarea>
+                            <div id="issueDescriptionHint" style="font-size: 12px; color: var(--muted);">Minimum 30 characters required</div>
+                            <div class="error-message" id="issueDescriptionError"></div>
+                        </div>
+                    </div>
+
+                    <!-- Section D: Supporting Documents -->
+                    <div class="form-section" id="sectionD">
+                        <h3>D. Supporting Documents</h3>
+                        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                            <p>Click to upload files or drag and drop</p>
+                            <p style="font-size: 12px; color: var(--muted);">Maximum 5 files, 10MB each</p>
+                            <input type="file" id="fileInput" multiple style="display: none;" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        </div>
+                        <div class="file-list" id="fileList"></div>
+                        <div class="error-message" id="fileError"></div>
+                    </div>
+
+                    <!-- Section E: Confirmation -->
+                    <div class="form-section" id="sectionE">
+                        <h3>E. Confirmation</h3>
+                        <div class="confirmation-checkbox">
+                            <input type="checkbox" id="confirmationCheck" name="confirmationCheck" required aria-describedby="confirmationError">
+                            <label for="confirmationCheck">I confirm that the above information is correct to the best of my knowledge. <span class="required">*</span></label>
+                        </div>
+                        <div class="error-message" id="confirmationError"></div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary submit-btn" disabled>Submit</button>
+                </form>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="section">
             <div class="container">
@@ -1332,6 +1788,944 @@
         <p>&copy; 2024 Government of Maharashtra. All rights reserved. 
         <span style="float: right;">Developed by <a href="https://saarit.in/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;"><img src="logo/saarlogo.png" alt="Saar Logo" style="height: 24px; width: auto; vertical-align: middle; margin-left: 8px; opacity: 0.9; transition: opacity 0.2s; filter: invert(1);"></a></span></p>
     </footer>
+
+     <!-- Success Modal -->
+    <div class="modal" id="successModal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div class="modal-content">
+            <h3 id="modalTitle">Grievance Submitted Successfully!</h3>
+            <div id="modalDescription">
+                <p><strong>Ticket Number:</strong> <span id="ticketNumber"></span></p>
+                <p><strong>Submitted On:</strong> <span id="submissionTime"></span></p>
+                <p><strong>Priority:</strong> <span id="submissionPriority"></span></p>
+                <div id="deviceInfo" style="margin-top: 16px; padding: 16px; background: var(--bg); border-radius: 8px; font-size: 12px;">
+                    <strong>Browser/Device Information:</strong><br>
+                    <span id="browserInfo"></span>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="enhance-dropdowns.js"></script>
+    <script>
+        // Dropdown data structure
+        // Dropdown data structure based on documentation
+        const DROPDOWNS = {
+            category: ["Technical"],
+            subCategory: {
+                Technical: ["Maha-AASTH Portal"]
+            },
+            issueRelated: {
+                Technical: {
+                    "Maha-AASTH Portal": ["Digital Service Book", "E- Orders","Mobile Modules", "Login Issues"]
+                }
+            },
+            section: {
+                "Digital Service Book": [
+                    "1. EMPLOYEE PERSONAL PROFILE",
+                    "2. APPOINTMENT DETAILS AND SUPPORTING DOCUMENTS", 
+                    "3. SERVICE HISTORY, GIS, PENSION SCHEME GPF/NPS, DEPARTMENTAL EXAM, TRAINING, WORK STATUS AND REWARDS",
+                    "4. PAY, FAMILY, NOMINATION, LEAVE, LTC, HBA, ADVANCES, ASSETS & LIABILITIES DETAILS",
+                    "5. SERVICE RECORDS AND VERIFICATION, DEPARTMENTAL ENQUIRY, GOVERNMENT QUARTERS, INTERNAL AUDIT DETAILS",
+                    "6. PREVIEW AND UPLOAD SCANNED COPY OF PHYSICAL SERVICE BOOK"
+                ],
+                "E- Orders": [
+                    "1. महाराष्ट्र लोकसेवा आयोगामार्फत शिफारस करण्यात आलेल्या   लिपिक टंकलेखक  यांचे नियुक्ती आदेश.",
+                    "2. महाराष्ट्र लोकसेवा आयोगामार्फत शिफारस करण्यात आलेल्या सहायक कक्ष अधिकारी यांचे नियुक्ती आदेश.",
+                    "3. महाराष्ट्र लोकसेवा आयोगामार्फत शिफारस करण्यात आलेल्या लघुटंकलेखक/ निम्नश्रेणी लघुलेखक/ उच्चश्रेणी लघुलेखक यांचे नियुक्ती आदेश.",
+                    "4. पदस्थापनचे आदेश (महाराष्ट्र लोकसेवा आयोगामार्फत सरळ सेवेने, मर्यादित विभागीय स्पर्धा परीक्षेद्वारे / तदर्थ पदोन्नतीने / आंतरविभागीय बदलीने).",
+                    "5. स्वग्राम घोषित करणेबाबत.",
+                    "6. वैद्यकीयदृष्ट्या पात्र प्रमाणपत्र.",
+                    "7. स्थायित्व प्रमाणपत्र.",
+                    "8. आर्थिकदृष्ट्या दुर्बल घटक  प्रमाणपत्र वैधतेची नोंद सेवापुस्तकात घेण्याबाबतचे आदेश.",
+                    "9. उन्नत आणि प्रगत व्यक्ती गटामध्ये मोडत नसल्याबाबतचे प्रमाणपत्र वैधतेची नोंद सेवापुस्तकात घेण्याबाबतचे आदेश.",
+                    "10. जात प्रमाणपत्राची वैधता व सत्यता तपासणीसाठी पाठवावयाची  पत्रे (2 पत्रे).",
+                    "11. उन्नत व प्रगत गटात मोडत नसल्याचे प्रमाणपत्र  (नॉन क्रिमीलेअर सर्टिफिेकेट) पडताळणीसाठी पत्र.",
+                    "12. जात वैधता प्रमाणपत्र पडताळणीची नोंद घेण्याबाबतचे आदेश.",
+                    "13. पूर्वचारित्र्य पडताळणीची नोंद घेण्याबाबतचे आदेश.",
+                    "14. पूर्वचारित्र्य पडताळणीची तपासणीसाठी पाठवावयाचे पत्र",
+                    "15. महाराष्ट्र लोकसेवा आयोगामार्फत शिफारस करण्यात आलेल्या लिपिक-टंकलेखक/सहायक कक्ष अधिकारी/लघुलेखक/ निम्नश्रेणी लघुलेखक/ उच्चश्रेणी लघुलेखक यांची महाराष्ट्र नागरी सेवा (सुधारित वेतन) नियम, 2019 नुसार  प्रारंभिक वेतननिश्चितीचे आदेश.",
+                    "16. पदोन्नतीनंतरची वेतननिश्चिती",
+                    "17. लिपिक-टंकलेखक ते सह सचिव संवर्गातील अधिकारी/कर्मचाऱ्यांच्या ज्येष्ठतेच्या दिनांकानुसार वेतननिश्चितीचे आदेश.",
+                    "18. सुधारित सेवांतर्गत आश्वासित प्रगती योजनेंतर्गत वेतननिश्चितीचे.",
+                    "19. अकार्यात्मक वेतनसंरचनेत / वेतनश्रेणीत वेतननिश्चिती करण्याबाबतचे  ज्ञापन.",
+                    "20. वेतन पडताळणी पथकाच्या आक्षेपानुसार  वेतननिश्चितीचे आदेश.",
+                    "21. वेतनवाढ रोखून  ठेवण्याबाबतचे आदेश.",
+                    "22. रोखून ठेवण्यात आलेली वेतनवाढ मुक्त करण्याबाबतचे आदेश.",
+                    "23. दिनांक १ जुलै रोजीची काल्पनिक वेतनवाढ मंजूरीचे आदेश.",
+                    "24. रजा मंजूरीचे आदेश (अर्जित रजा / परिवर्तीत रजा/अर्धवेतनी रजा/असाधारण रजा).",
+                    "25. स्वग्राम/ महाराष्ट्र दर्शन रजा आदेश.",
+                    "26. परदेश (पर्यटन) रजा मंजूरी आदेश.",
+                    "27. श्वान दंश रजा मंजूरीचे आदेश.",
+                    "28. असाधारण रजा मंजूरीचे आदेश.",
+                    "29. गर्भपात रजा मंजूरी आदेश.",
+                    "30. प्रसूती रजा आदेश.",
+                    "31. बालसंगोपन रजा आदेश.",
+                    "32. विपश्यना रजा मंजूरीचे आदेश.",
+                    "33. विशेष रजा (कर्करोग रजा /क्षयरोग /कुष्ठरोग/पक्षघात)   मंजूर करण्याबाबतचे आदेश.",
+                    "34. स्वग्राम/महाराष्ट्र दर्शन रजा प्रास सवलत",
+                    "35. मराठी व हिंदी भाषा परीक्षा उत्तीर्ण होण्यापासून सूट देण्याबाबतचे आदेश.",
+                    "36. एतदर्थ मंडळामार्फत घेण्यात आलेल्या मराठी भाषा उच्चश्रेणी परीक्षेच्या निकालाची नोंद घेण्याबाबत.",
+                    "37. एतदर्थ मंडळामार्फत घेण्यात आलेल्या हिंदी भाषा निम्नश्रेणी परीक्षेच्या निकालाची नोंद घेण्याबाबत.",
+                    "38. संगणक ज्ञान अर्हता परीक्षा (MS-CIT) उत्तीर्ण केल्याबाबतचे आदेश.",
+                    "39. संगणक अर्हता परीक्षा उत्तीर्ण होण्यापासून सूट देण्याबाबतचे आदेश.",
+                    "40. लिपिक-टंकलेखक/सहायक कक्ष अधिकारी यांच्या सेवा प्रवेशोत्तर परीक्षेच्या निकालाची सेवापुस्तकात नोंद घेण्याबाबतचे आदेश.",
+                    "41. सहायक कक्ष अधिकाऱ्यांच्या कक्ष अधिकारी पदावरील पदोन्नती परीक्षेच्या निकालाची नोंद सेवापुस्तकात घेण्याबाबतचे आदेश.",
+                    "42. वैयक्तिक संगणक खरेदी अग्रिम मंजूरीचे आदेश.",
+                    "43. स्कूटर खरेदी अग्रिम मंजूरीचे आदेश.",
+                    "44. घरबांधणी अग्रिम (तयार घर/ बँक परतफेड) मंजूर करण्याबाबतचे आदेश.",
+                    "45. घरबांधणी अग्रिम  (बांधकाम सुरु असलेल्या सदनिकेकरिता) पहिल्या हप्त्यात मंजूर करण्याबाबतचे आदेश.",
+                    "46. घरबांधणी अग्रिम (बांधकाम सुरु असलेल्या सदनिकेकरिता) दुसऱ्या हप्त्यात मंजूर करण्याबाबतचे आदेश.",
+                    "47. नवीन/जूनी मोटरकार  खरेदीसाठी अग्रिम मंजूर करण्याबाबतचे आदेश.",
+                    "48. भविष्य निर्वाह निधी खात्यातील 90% ना परतावा अग्रिम काढण्यास मंजूरी देण्याबाबतचे आदेश",
+                    "49. भविष्य निर्वाह निधी खात्यातील परतावा अग्रिम काढण्यास मंजूरी देण्याबाबतचे आदेश",
+                    "50. भविष्य निर्वाह निधी खात्यातील ना परतावा रक्कम  काढण्यास मंजूरी देण्याबाबतचे आदेश.",
+                    "51. भविष्य निर्वाह निधीमधून घराच्या दुरुस्तीकरिता अग्रीम मंजूरीचे आदेश.",
+                    "52. अकार्यात्मक वेतनश्रेणी मंजूर करण्याबाबतचे  कार्यालयीन आदेश.",
+                    "53. सुधारित आश्वासित प्रगती योजनेंतर्गत लाभ मंजूरीचे आदेश.",
+                    "54. अवर सचिव/ उप सचिव/सह सचिव संवर्गातील अधिकाऱ्यांना निवडश्रेणी मंजूर करण्याबाबतचे आदेश.",
+                    "55. सेवा जोडून देण्याबाबतचे आदेश.",
+                    "56. राज्य  प्रशिक्षण धोरणांतर्गत लिपिक-टंकलेखक/सहायक कक्ष अधिकारी/कक्ष अधिकारी वर्गाकरिता आयोजित पायाभूत प्रशिक्षण पूर्ण केल्याची नोंद घेण्याबाबतचे आदेश.",
+                    "57. पदोन्नतीनंतरचे प्रशिक्षण कार्यमुक्ती आदेश.",
+                    "58. विभागात रुजू करुन घेण्याबाबतचे आदेश.",
+                    "59. वैद्यकीय खर्च प्रतिपूर्तीकरिता विकल्प देण्याबाबत.",
+                    "60. अतिरिक्त कार्यभार देण्याबाबतचे आदेश.",
+                    "61. अतिरिक्त कार्यभार सांभाळल्याबद्दल विशेष वेतन मंजूरीचे आदेश.",
+                    "62. प्रतिक्षाधीन कालावधी नियमित करण्याबाबतचे आदेश.",
+                    "63. वयाच्या 49 व्या वर्षानंतर करावयाच्या सेवा पुनर्विलोकनाबाबतचे आदेश (राजपत्रित अधिकारी).",
+                    "64. वयाच्या  54 व्या वर्षानंतर  करावयाच्या सेवा पुनर्विलोकनाबाबतचे आदेश (गट-ब अराजपत्रित व गट क कर्मचारी).",
+                    "65. कार्यमुक्ततेचे आदेश (पदोन्नतीने /आंतरविभागीय बदलीने/ प्रतिनियुक्तीने/निवडणूक कामाकरिता).",
+                    "66. ना देय/ना चौकशी प्रमाणपत्र.",
+                    "67. अनधिकृत कार्यालयीन गैरहजेरीबाबतचे ज्ञापन.",
+                    "68. अनधिकृत रजेबाबत विभागीय चौकशीबाबतचे आदेश.",
+                    "69. निलंबन आदेश.",
+                    "70. निर्वाहभत्ता मंजूर करण्याबाबतचे आदेश.",
+                    "71. खालील पदावर पदावनत झाल्यानंतरची वेतननिश्चिती",
+                    "72. शासन सेवेत पुन:स्थापित करणेबाबत.",
+                    "73. कुटुंब निवृत्तिवेतन मंजूर करण्याबाबतचे आदेश.",
+                    "74. सेवानिवृत्ती आदेश.(अराजपत्रित)",
+                    "75. सेवानिवृत्ती अधिसूचना.(राजपत्रित अधिकारी)",
+                    "76. स्वेच्छा सेवानिवृत्ती आदेश.",
+                    "77. सेवा समाप्ती आदेश.",
+                    "78. तात्पुरते सेवानिवृत्ति वेतन मंजूर करण्याबाबतचे आदेश.",
+                    "79. सेवानिवृत्तिनंतर गट विमा योजना व बचत निधी रक्कम मंजूर करण्याबाबतचे आदेश.",
+                    "80. सेवानिवृत्तिनंतर अर्जित रजेच्या रोखीकरणाचे आदेश.",
+                    "81. निवृत्तिवेतन प्राधिकृत करण्याकरिता महालेखापालांना प्रस्ताव पाठविणे.",
+                    "82. निवृत्तिवेतन प्राधिकृत करण्याकरिता कोषागार कार्यालयास पाठवावयाचे पत्र",
+                    "83. राजीनामा दिल्याने सेवासमाप्ती आदेश",
+                    "84. नवीन पदावर रुजु होण्याकरिता कार्यमुक्त करुन सेवासमाप्ती करणे"
+                ],
+                "Login Issues": ["Admin Login", "User Login", "Data Entry Operator Login "],
+                "Mobile Modules": ["Service Book", "Attendance", "Finance", "E-Orders","I-GOT","Videos","Leave","E-Office","NITI for states", "Goi Intranet", "Quick Links","Websites"]
+            },
+            subSection: {
+                "1. EMPLOYEE PERSONAL PROFILE": [
+                    "1.1 Personal Information/ Identity Details",
+                    "1.2 Personal Details and Medical Fitness Information",
+                    "1.3 Residential Details, Office and Emergency Contact details",
+                    "1.4 Photograph and Signature",
+                    "1.5 Educational Qualification Details (At the Time of Joining / Subsequently Acquired)",
+                    "1.6 Disability Information"
+                ],
+                "2. APPOINTMENT DETAILS AND SUPPORTING DOCUMENTS": [
+                    "2.1 Appointment Details"
+                ],
+                "3. SERVICE HISTORY, GIS, PENSION SCHEME GPF/NPS, DEPARTMENTAL EXAM, TRAINING, WORK STATUS AND REWARDS": [
+                    "3.1 Posting/ Promotion/ Transfer details",
+                    "3.2 Central Government Employees Group Insurance Scheme/ Group Insurance Scheme/ Accidental Insurance Scheme",
+                    "3.3 Pension Scheme, General Provident Fund (GPF), NPS (National Pension Scheme), DCPS",
+                    "3.4 Departmental Examination",
+                    "3.5 Training and Capacity Building",
+                    "3.6 Employee Work Status- Probation / Permanency / 49-54 Review",
+                    "3.7 Rewards / Achievements / Certificates"
+                ],
+                "4. PAY, FAMILY, NOMINATION, LEAVE, LTC, HBA, ADVANCES, ASSETS & LIABILITIES DETAILS": [
+                    "4.1 Pay Fixation, Increment, Assured Career Progressive Scheme/ Modified Assured Career Progressive Scheme, Non-functional Scale, Time Scale Promotion, Salary Allowance",
+                    "4.2 Family Members",
+                    "4.3 Nominations",
+                    "4.4 Leaves- HPL/ CL/ EL Credit",
+                    "4.5 Leave Travel Concession (LTC)",
+                    "4.6 House Building Advance (HBA)",
+                    "4.7 Other Advances",
+                    "4.8 Assets And Liabilities"
+                ],
+                "5. SERVICE RECORDS AND VERIFICATION, DEPARTMENTAL ENQUIRY, GOVERNMENT QUARTERS, INTERNAL AUDIT DETAILS": [
+                    "5.1 Previous Govt. Service records",
+                    "5.2 Foreign Service",
+                    "5.3 Record of Break in Service",
+                    "5.4 Departmental Enquiry",
+                    "5.5 Government Quarters",
+                    "5.6 Internal Audit"
+                ],
+                "6. PREVIEW AND UPLOAD SCANNED COPY OF PHYSICAL SERVICE BOOK": [
+                    "6.1 Approve Service Book Complete Details",
+                    "6.2 Upload Service Book"
+                ]
+            }
+        };
+
+        // Role priority mapping
+        const ROLE_PRIORITY = {
+            "HDS Executive": "Mid",
+            "Data Entry Operation": "Mid", 
+            "Drawing & Disbursing Officer": "High",
+            "Departmental Maha-AASTHA Desk Nodal Officer": "High",
+            "Employee": "Low"
+        };
+
+        // Global variables
+        let uploadedFiles = [];
+        let formData = {};
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeForm();
+            setupEventListeners();
+            animateStats();
+            setLastUpdated();
+            setCurrentTimestamp();
+            
+            // Clear any existing form data on page load
+            const form = document.getElementById('grievanceForm');
+            if (form) {
+                form.reset();
+                uploadedFiles = [];
+                updateFileList();
+            }
+        });
+
+        function initializeForm() {
+            // Populate category dropdown
+            const categorySelect = document.getElementById('issueCategory');
+            DROPDOWNS.category.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+            });
+        }
+
+        function setupEventListeners() {
+            // Form validation
+            const form = document.getElementById('grievanceForm');
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            const confirmationCheck = document.getElementById('confirmationCheck');
+            const submitBtn = form.querySelector('.submit-btn');
+
+            // Real-time validation
+            inputs.forEach(input => {
+                input.addEventListener('input', validateField);
+                input.addEventListener('blur', validateField);
+            });
+
+            confirmationCheck.addEventListener('change', updateSubmitButton);
+
+            // Role selection
+            document.getElementById('userRole').addEventListener('change', updatePriority);
+
+            // Dynamic dropdowns
+            document.getElementById('issueCategory').addEventListener('change', updateSubCategory);
+            document.getElementById('issueSubCategory').addEventListener('change', updateIssueRelated);
+            document.getElementById('issueRelated').addEventListener('change', updateSection);
+            document.getElementById('issueSection').addEventListener('change', updateSubSection);
+
+            // Subject character counter
+            document.getElementById('issueSubject').addEventListener('input', updateSubjectCounter);
+
+            // File upload
+            document.getElementById('fileInput').addEventListener('change', handleFileUpload);
+
+            // Form submission
+            form.addEventListener('submit', handleFormSubmit);
+
+            // Progress steps
+            document.querySelectorAll('.progress-step').forEach(step => {
+                step.addEventListener('click', scrollToSection);
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Prevent beforeunload for navigation links
+            document.querySelectorAll('a[href]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Clear form data before navigation to prevent beforeunload
+                    if (this.href.includes('grievance.html')) {
+                        const form = document.getElementById('grievanceForm');
+                        if (form) {
+                            form.reset();
+                            uploadedFiles = [];
+                            updateFileList();
+                        }
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Prevent accidental form loss (but not for status navigation)
+            window.addEventListener('beforeunload', function(e) {
+                // Don't show warning if navigating to grievance.html
+                if (window.location.href.includes('grievance.html')) {
+                    return;
+                }
+                
+                const form = document.getElementById('grievanceForm');
+                if (!form) return;
+                
+                // Check if form has meaningful data (not just default values)
+                const formData = new FormData(form);
+                let hasData = false;
+                
+                // Check specific fields that indicate user has started filling the form
+                const importantFields = ['employeeId', 'employeeName', 'designation', 'department', 'issueSubject', 'issueDescription'];
+                
+                for (let field of importantFields) {
+                    const value = formData.get(field);
+                    if (value && value.trim().length > 0) {
+                        hasData = true;
+                        break;
+                    }
+                }
+                
+                // Also check if files have been uploaded
+                if (uploadedFiles && uploadedFiles.length > 0) {
+                    hasData = true;
+                }
+                
+                if (hasData) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                }
+            });
+        }
+
+        function validateField(e) {
+            const field = e.target;
+            const fieldGroup = field.closest('.form-group');
+            
+            // Check if fieldGroup exists
+            if (!fieldGroup) {
+                // Handle standalone controls (like confirmation checkbox) gracefully
+                if (field.id === 'confirmationCheck') {
+                    // If there is an aria-describedby pointing to an error node, clear it
+                    const describedBy = field.getAttribute('aria-describedby');
+                    if (describedBy) {
+                        const errorNode = document.getElementById(describedBy);
+                        if (errorNode) errorNode.textContent = '';
+                    }
+                    // Validate checkbox: if required, it must be checked
+                    if (field.hasAttribute('required')) {
+                        return field.checked;
+                    }
+                    return true;
+                }
+
+                // If no .form-group is present for other controls, skip verbose warning in production
+                return true; // Skip validation if no field group found
+            }
+            
+            const errorDiv = fieldGroup.querySelector('.error-message');
+            
+            let isValid = true;
+            let errorMessage = '';
+
+            // Required field validation
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                isValid = false;
+                errorMessage = 'This field is required.';
+            }
+
+            // Specific field validations
+            switch (field.type) {
+                case 'email':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (field.value && !emailRegex.test(field.value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address.';
+                    }
+                    break;
+                case 'tel':
+                    const phoneRegex = /^[0-9]{10,13}$/;
+                    if (field.value && !phoneRegex.test(field.value.replace(/\s/g, ''))) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid 10-13 digit mobile number.';
+                    }
+                    break;
+            }
+
+            // Subject length validation
+            if (field.id === 'issueSubject' && field.value.length < 10 && field.value.length > 0) {
+                isValid = false;
+                errorMessage = 'Subject must be at least 10 characters long.';
+            }
+
+            // Description length validation
+            if (field.id === 'issueDescription' && field.value.length < 30 && field.value.length > 0) {
+                isValid = false;
+                errorMessage = 'Description must be at least 30 characters long.';
+            }
+
+            // Update UI
+            if (isValid) {
+                fieldGroup.classList.remove('error');
+                errorDiv.textContent = '';
+            } else {
+                fieldGroup.classList.add('error');
+                errorDiv.textContent = errorMessage;
+            }
+
+            updateSubmitButton();
+            return isValid;
+        }
+
+        function validateFieldDirect(field) {
+            const fieldGroup = field.closest('.form-group');
+            
+            // Check if fieldGroup exists
+            if (!fieldGroup) {
+                // Handle standalone confirmation checkbox specially
+                if (field.id === 'confirmationCheck') {
+                    const describedBy = field.getAttribute('aria-describedby');
+                    if (describedBy) {
+                        const errorNode = document.getElementById(describedBy);
+                        if (errorNode) errorNode.textContent = '';
+                    }
+                    if (field.hasAttribute('required')) {
+                        return field.checked;
+                    }
+                    return true;
+                }
+
+                return true; // No group - nothing to update
+            }
+            
+            const errorDiv = fieldGroup.querySelector('.error-message');
+            
+            let isValid = true;
+            let errorMessage = '';
+
+            // Required field validation
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                isValid = false;
+                errorMessage = 'This field is required.';
+            }
+
+            // Specific field validations
+            if (field.id === 'mobileNumber' && field.value) {
+                const phoneRegex = /^[0-9]{10,13}$/;
+                if (!phoneRegex.test(field.value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid 10-13 digit mobile number.';
+                }
+            }
+
+            if (field.id === 'officialEmail' && field.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid email address.';
+                }
+            }
+
+            if (field.id === 'issueSubject' && field.value) {
+                if (field.value.length < 10 || field.value.length > 120) {
+                    isValid = false;
+                    errorMessage = 'Subject must be between 10 and 120 characters.';
+                }
+            }
+
+            // Description length validation
+            if (field.id === 'issueDescription' && field.value.length < 30 && field.value.length > 0) {
+                isValid = false;
+                errorMessage = 'Description must be at least 30 characters long.';
+            }
+
+            // Update UI
+            if (isValid) {
+                fieldGroup.classList.remove('error');
+                if (errorDiv) errorDiv.textContent = '';
+            } else {
+                fieldGroup.classList.add('error');
+                if (errorDiv) errorDiv.textContent = errorMessage;
+            }
+
+            return isValid;
+        }
+
+        function updateSubmitButton() {
+            const form = document.getElementById('grievanceForm');
+            const submitBtn = form.querySelector('.submit-btn');
+            const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
+            const confirmationCheck = document.getElementById('confirmationCheck');
+            
+            let allValid = true;
+
+            // Check all required fields
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    allValid = false;
+                }
+            });
+
+            // Check file upload limit
+            if (uploadedFiles.length > 5) {
+                allValid = false;
+            }
+
+            // Check confirmation
+            if (!confirmationCheck.checked) {
+                allValid = false;
+            }
+
+            submitBtn.disabled = !allValid;
+        }
+
+        function updatePriority() {
+            const role = document.getElementById('userRole').value;
+            const priorityDisplay = document.getElementById('priorityDisplay');
+            
+            if (role && ROLE_PRIORITY[role]) {
+                const priority = ROLE_PRIORITY[role];
+                priorityDisplay.textContent = priority;
+                priorityDisplay.className = `priority-chip priority-${priority.toLowerCase()}`;
+            } else {
+                priorityDisplay.textContent = 'Low';
+                priorityDisplay.className = 'priority-chip priority-low';
+            }
+        }
+
+        function updateSubCategory() {
+            const category = document.getElementById('issueCategory').value;
+            const subCategorySelect = document.getElementById('issueSubCategory');
+            
+            // Clear dependent dropdowns
+            clearSelect(subCategorySelect);
+            clearSelect(document.getElementById('issueRelated'));
+            clearSelect(document.getElementById('issueSection'));
+            clearSelect(document.getElementById('issueSubSection'));
+            
+            if (category && DROPDOWNS.subCategory[category]) {
+                DROPDOWNS.subCategory[category].forEach(subCategory => {
+                    const option = document.createElement('option');
+                    option.value = subCategory;
+                    option.textContent = subCategory;
+                    subCategorySelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateIssueRelated() {
+            const category = document.getElementById('issueCategory').value;
+            const subCategory = document.getElementById('issueSubCategory').value;
+            const issueRelatedSelect = document.getElementById('issueRelated');
+            
+            // Clear dependent dropdowns
+            clearSelect(issueRelatedSelect);
+            clearSelect(document.getElementById('issueSection'));
+            clearSelect(document.getElementById('issueSubSection'));
+            
+            if (category && subCategory && DROPDOWNS.issueRelated[category] && DROPDOWNS.issueRelated[category][subCategory]) {
+                DROPDOWNS.issueRelated[category][subCategory].forEach(issue => {
+                    const option = document.createElement('option');
+                    option.value = issue;
+                    option.textContent = issue;
+                    issueRelatedSelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateSection() {
+            const issueRelated = document.getElementById('issueRelated').value;
+            const sectionSelect = document.getElementById('issueSection');
+            
+            // Clear dependent dropdowns
+            clearSelect(sectionSelect);
+            clearSelect(document.getElementById('issueSubSection'));
+            
+            if (issueRelated && DROPDOWNS.section[issueRelated]) {
+                DROPDOWNS.section[issueRelated].forEach(section => {
+                    const option = document.createElement('option');
+                    option.value = section;
+                    option.textContent = section;
+                    sectionSelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateSubSection() {
+            const section = document.getElementById('issueSection').value;
+            const subSectionSelect = document.getElementById('issueSubSection');
+            
+            clearSelect(subSectionSelect);
+            
+            if (section && DROPDOWNS.subSection[section]) {
+                DROPDOWNS.subSection[section].forEach(subSection => {
+                    const option = document.createElement('option');
+                    option.value = subSection;
+                    option.textContent = subSection;
+                    subSectionSelect.appendChild(option);
+                });
+            }
+        }
+
+        function clearSelect(selectElement) {
+            while (selectElement.children.length > 1) {
+                selectElement.removeChild(selectElement.lastChild);
+            }
+        }
+
+        function updateSubjectCounter() {
+            const subject = document.getElementById('issueSubject');
+            const counter = document.getElementById('issueSubjectCounter');
+            counter.textContent = `${subject.value.length}/120`;
+        }
+
+        function handleFileUpload(e) {
+            const files = Array.from(e.target.files);
+            const fileError = document.getElementById('fileError');
+            
+            // Validate file count
+            if (uploadedFiles.length + files.length > 5) {
+                fileError.textContent = 'Maximum 5 files allowed.';
+                return;
+            }
+            
+            // Validate file size and type
+            for (let file of files) {
+                if (file.size > 10 * 1024 * 1024) { // 10MB
+                    fileError.textContent = `File "${file.name}" is too large. Maximum size is 10MB.`;
+                    return;
+                }
+                
+                const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/jpg', 'image/png'];
+                if (!allowedTypes.includes(file.type)) {
+                    fileError.textContent = `File "${file.name}" is not supported. Please upload PDF, DOC, DOCX, JPG, JPEG, or PNG files.`;
+                    return;
+                }
+            }
+            
+            // Add files
+            uploadedFiles.push(...files);
+            fileError.textContent = '';
+            updateFileList();
+            updateSubmitButton();
+        }
+
+        function updateFileList() {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+            
+            uploadedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <span>${file.name} (${formatFileSize(file.size)})</span>
+                    <button type="button" class="file-remove" onclick="removeFile(${index})">Remove</button>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        function removeFile(index) {
+            uploadedFiles.splice(index, 1);
+            updateFileList();
+            updateSubmitButton();
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function populateFromMahaAastha() {
+            // Mock auto-fill function - in production this would call an API
+            document.getElementById('employeeId').value = 'EMP001234';
+            document.getElementById('employeeName').value = 'Rajesh Kumar Sharma';
+            document.getElementById('designation').value = 'Assistant Commissioner';
+            document.getElementById('department').value = 'Revenue Department';
+            document.getElementById('officeName').value = 'Collectorate Mumbai';
+            document.getElementById('districtName').value = 'Mumbai';
+            document.getElementById('mobileNumber').value = '9876543210';
+            document.getElementById('officialEmail').value = 'rajesh.sharma@revenue.gov.in';
+            
+            // Trigger validation
+            const fields = ['employeeId', 'employeeName', 'designation', 'department', 'officeName', 'districtName', 'mobileNumber', 'officialEmail'];
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                field.dispatchEvent(new Event('input'));
+            });
+        }
+
+        function scrollToSection(e) {
+            const step = e.currentTarget.dataset.step;
+            const section = document.getElementById(`section${step}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            // Final validation
+            const form = e.target;
+            const formData = new FormData(form);
+            let isValid = true;
+            
+            // Validate all required fields
+            const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
+            requiredFields.forEach(field => {
+                if (!validateFieldDirect(field)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please correct the errors in the form before submitting.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Ensure timestamp is set before collecting data
+                ensureTimestampSet();
+                
+                // Collect form data
+                const issueTimestampValue = formData.get('issueTimestamp');
+                const grievanceData = {
+                    employeeId: formData.get('employeeId'),
+                    employeeName: formData.get('employeeName'),
+                    mobileNumber: formData.get('mobileNumber'),
+                    designation: formData.get('designation'),
+                    department: formData.get('department'),
+                    officeName: formData.get('officeName'),
+                    districtName: formData.get('districtName'),
+                    officialEmail: formData.get('officialEmail'),
+                    userRole: formData.get('userRole'),
+                    priority: ROLE_PRIORITY[formData.get('userRole')] || 'Low',
+                    issueTimestamp: issueTimestampValue && issueTimestampValue.trim() !== '' ? issueTimestampValue : new Date().toISOString(),
+                    issueCategory: formData.get('issueCategory'),
+                    issueSubCategory: formData.get('issueSubCategory'),
+                    issueRelated: formData.get('issueRelated'),
+                    issueSection: formData.get('issueSection'),
+                    issueSubSection: formData.get('issueSubSection'),
+                    subject: formData.get('issueSubject'),
+                    description: formData.get('issueDescription'),
+                    filesCount: uploadedFiles.length
+                };
+                
+                // Submit to API
+                // If the page is opened via file:// (local file), fetching /api/grievances will fail
+                // due to CORS and unsupported protocol. In that case use the local submitToApi mock.
+                let result;
+                // if (location.protocol === 'file:') {
+                //     console.warn('Running from file:// - using local mock submitToApi instead of network fetch.');
+                //     result = await submitToApi(grievanceData);
+                // } else {
+                    const response = await fetch('/api/grievances', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(grievanceData)
+                    });
+                    result = await response.json();
+                // }
+
+                if (result && result.success) {
+                    // Show success modal
+                    // support both result.data (API) and result.data-like object returned from mock
+                    const data = result.data || result;
+                    showSuccessModal(data);
+
+                    // Reset form
+                    form.reset();
+                    uploadedFiles = [];
+                    updateFileList();
+                    updateSubmitButton();
+                } else {
+                    throw new Error((result && result.message) || 'Failed to submit grievance');
+                }
+                
+            } catch (error) {
+                console.error('Error submitting grievance:', error);
+                alert('Failed to submit grievance. Please try again.');
+            } finally {
+                // Restore button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        function showSuccessModal(grievanceData) {
+            const modal = document.getElementById('successModal');
+            document.getElementById('ticketNumber').textContent = grievanceData.ticket;
+            document.getElementById('submissionTime').textContent = new Date(grievanceData.created_at).toLocaleString();
+            document.getElementById('submissionPriority').textContent = grievanceData.priority;
+            
+            // Browser/Device info
+            const browserInfo = `
+                User Agent: ${navigator.userAgent}<br>
+                Platform: ${navigator.platform}<br>
+                Viewport: ${window.innerWidth}x${window.innerHeight}<br>
+                Language: ${navigator.language}
+            `;
+            document.getElementById('browserInfo').innerHTML = browserInfo;
+            
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('show');
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('show');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('show');
+        }
+
+        function navigateToStatus(event) {
+            event.preventDefault();
+            // Clear any form data that might trigger beforeunload
+            const form = document.getElementById('grievanceForm');
+            if (form) {
+                // Reset form to clear any data
+                form.reset();
+                // Clear uploaded files
+                uploadedFiles = [];
+                updateFileList();
+            }
+            // Navigate without triggering beforeunload
+            window.location.href = 'grievance.html';
+        }
+
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.dataset.target);
+                        animateCounter(entry.target, target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 20);
+        }
+
+        function setLastUpdated() {
+            const lastUpdated = document.getElementById('lastUpdated');
+            if (lastUpdated) {
+                lastUpdated.textContent = new Date().toLocaleDateString();
+            }
+        }
+
+        function setCurrentTimestamp() {
+            const timestampField = document.getElementById('issueTimestamp');
+            if (timestampField) {
+                const now = new Date();
+                const offset = now.getTimezoneOffset() * 60000;
+                const localTime = new Date(now.getTime() - offset);
+                timestampField.value = localTime.toISOString().slice(0, 16);
+            }
+        }
+
+        // Ensure timestamp is always set before form submission
+        function ensureTimestampSet() {
+            const timestampField = document.getElementById('issueTimestamp');
+            if (timestampField && (!timestampField.value || timestampField.value.trim() === '')) {
+                setCurrentTimestamp();
+            }
+        }
+
+        // API integration placeholders for future use
+        function submitToApi(payload) {
+            // Local mock submit used when running the page via file:// or when backend is unavailable.
+            console.log('Mock submitToApi called with payload:', payload);
+
+            // Generate a random mock ticket (like TKT-ab12cd34)
+            const randomHex = Math.random().toString(16).substring(2, 10).toUpperCase();
+            const mockTicket = `TKT-${randomHex}`;
+
+            // Current timestamp
+            const now = new Date().toISOString();
+
+            return Promise.resolve({
+                success: true,
+                data: {
+                    ticket: mockTicket,
+                    created_at: now,
+                    priority: payload.priority || 'Low'
+                }
+            });
+        }
+        function getMahaAasthaUser() {
+            // This function will fetch user data from Maha-AASTHA API
+            console.log('Fetching user data from API');
+            return Promise.resolve({
+                employeeId: 'EMP001234',
+                name: 'Rajesh Kumar Sharma',
+                designation: 'Assistant Commissioner',
+                department: 'Revenue Department',
+                office: 'Collectorate Mumbai',
+                district: 'Mumbai',
+                mobile: '9876543210',
+                email: 'rajesh.sharma@revenue.gov.in'
+            });
+        }
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Esc key closes modal
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('successModal');
+                if (modal.classList.contains('show')) {
+                    closeModal();
+                }
+            }
+        });
+    </script>
 
     <!-- ==================== CHATBOT WIDGET ==================== -->
     <!-- ==================== CHATBOT WIDGET ==================== -->

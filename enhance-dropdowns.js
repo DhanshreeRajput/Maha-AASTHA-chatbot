@@ -1,0 +1,178 @@
+// Script to enhance the existing DROPDOWNS object with comprehensive data
+// This can be included in the HTML file
+
+// Enhanced section data
+const ENHANCED_SECTIONS = {
+    "Portal Login":["Authentication","Captcha","OTP","Session Management","Password Policy"],
+    "App Login":["App Version","Device Binding","Biometric","Auto Login","Offline Access"],
+    "Password Reset":["Email Verification","SMS Verification","Security Questions","Admin Reset","Self Service"],
+    "Two-Factor Authentication":["SMS OTP","Email OTP","Authenticator App","Hardware Token","Backup Codes"],
+    "Session Timeout":["Auto Logout","Session Extension","Remember Me","Security Policy","Activity Tracking"],
+    "Android App":["Version Update","Crash Report","Performance","Compatibility","Permissions"],
+    "iOS App":["Version Update","Crash Report","Performance","Compatibility","Permissions"],
+    "Specific Screen":["Login Screen","Dashboard","Form Screen","Report Screen","Settings Screen"],
+    "Memory Issue":["RAM Usage","Storage Space","Cache Management","Memory Leak","Performance"],
+    "Compatibility":["Browser Support","OS Compatibility","Device Support","Version Support","Feature Support"],
+    "Master Data":["Employee Master","Department Master","Designation Master","Location Master","Grade Master"],
+    "Employee Records":["Personal Information","Employment Details","Service History","Educational Records","Family Details"],
+    "Department Data":["Department Structure","Reporting Hierarchy","Location Mapping","Cost Center","Budget Allocation"],
+    "Payroll Data":["Salary Structure","Allowances","Deductions","Tax Information","Bank Details"],
+    "Leave Records":["Leave Balance","Leave History","Leave Applications","Leave Policies","Leave Types"],
+    "Portal Loading":["Homepage","Dashboard","Forms","Reports","Settings"],
+    "App Response":["Login","Navigation","Data Loading","Form Submission","File Upload"],
+    "Database Query":["Search Function","Report Generation","Data Export","Statistics","Analytics"],
+    "File Upload":["Document Upload","Image Upload","Bulk Upload","File Validation","Storage Management"],
+    "Report Generation":["PDF Reports","Excel Export","Print Reports","Scheduled Reports","Custom Reports"],
+    "Name Change":["Legal Name","Display Name","Nickname","Previous Name","Name Correction"],
+    "Designation Update":["Current Designation","New Designation","Acting Designation","Temporary Assignment","Permanent Change"],
+    "Email Update":["Primary Email","Secondary Email","Official Email","Personal Email","Email Verification"],
+    "Mobile Update":["Primary Mobile","Secondary Mobile","Emergency Contact","Mobile Verification","SMS Updates"],
+    "Address Change":["Current Address","Permanent Address","Office Address","Emergency Address","Address Verification"],
+    "Department Transfer":["From Department","To Department","Transfer Date","Reporting Manager","Work Location"],
+    "Division Merge":["Merging Divisions","New Structure","Reporting Changes","Resource Allocation","Process Update"],
+    "Unit Split":["Parent Unit","New Units","Resource Distribution","Reporting Structure","Process Separation"],
+    "Reporting Change":["New Manager","Reporting Structure","Approval Hierarchy","Workflow Update","Notification Changes"],
+    "Location Transfer":["From Location","To Location","Transfer Date","Work Arrangement","Travel Allowance"],
+    "Role Mapping":["Current Role","New Role","Permission Matrix","Access Level","Functional Rights"],
+    "Privilege Escalation":["Temporary Access","Emergency Access","Admin Rights","System Access","Data Access"],
+    "Permission Grant":["New Permissions","Module Access","Feature Access","Data Access","System Access"],
+    "Access Revoke":["Permission Removal","Access Denial","Account Lock","Role Revocation","System Block"],
+    "Role Assignment":["Role Selection","Permission Assignment","Access Level","Functional Rights","System Rights"],
+    "New User Creation":["User Registration","Account Setup","Initial Login","Profile Creation","Access Assignment"],
+    "User Deactivation":["Account Deactivation","Access Removal","Data Retention","Notification","Reactivation Process"],
+    "Account Lock":["Temporary Lock","Permanent Lock","Security Lock","Admin Lock","System Lock"],
+    "Profile Merge":["Duplicate Profiles","Data Consolidation","Record Merging","Conflict Resolution","Data Validation"],
+    "Apply Leave":["Leave Application","Leave Type","Date Selection","Reason Entry","Document Upload"],
+    "Approve Leave":["Leave Approval","Manager Review","HR Approval","System Approval","Notification"],
+    "Cancel Leave":["Leave Cancellation","Refund Process","Balance Update","Notification","Approval Required"],
+    "Leave Balance":["Current Balance","Leave History","Balance Calculation","Carry Forward","Leave Types"],
+    "Leave History":["Past Leaves","Leave Summary","Approval History","Cancellation History","Balance Changes"],
+    "DDO Approval":["DDO Review","Approval Process","Workflow","Notification","Status Update"],
+    "Nodal Officer":["Nodal Review","Approval Authority","Process Flow","Notification","Decision"],
+    "System Processing":["Automated Processing","Workflow Engine","Rule Engine","Notification System","Status Update"],
+    "Workflow Issue":["Process Block","Approval Delay","System Error","Manual Intervention","Escalation"],
+    "Notification Problem":["Email Notification","SMS Notification","In-App Notification","System Alert","User Notification"],
+    "Service Book":["Personal Records","Employment History","Service Details","Document Management","Record Updates"],
+    "E-Orders":["Order Creation","Order Approval","Order Publishing","Order Archive","Order Management"],
+    "Payroll Records":["Salary Records","Payment History","Deduction Records","Allowance Records","Tax Records"],
+    "Attendance Data":["Time Records","Shift Data","Overtime Records","Absence Records","Attendance Reports"],
+    "Personal Information":["Basic Details","Contact Information","Family Details","Emergency Contacts","Document Details"],
+    "Salary Calculation":["Basic Salary","Allowances","Deductions","Tax Calculation","Net Salary"],
+    "Deduction Problem":["Tax Deduction","Loan Deduction","Insurance Deduction","Other Deductions","Deduction Calculation"],
+    "Allowance Issue":["Travel Allowance","Medical Allowance","House Rent","Special Allowance","Performance Bonus"],
+    "Tax Calculation":["Income Tax","Professional Tax","TDS Calculation","Tax Exemption","Tax Refund"],
+    "Payment Delay":["Salary Delay","Payment Processing","Bank Transfer","Payment Method","Payment Status"],
+    "Time Tracking":["Clock In/Out","Break Time","Overtime Tracking","Shift Management","Time Reports"],
+    "Shift Management":["Shift Assignment","Shift Changes","Shift Rotation","Shift Reports","Shift Policies"],
+    "Overtime Calculation":["Overtime Hours","Overtime Rate","Overtime Approval","Overtime Payment","Overtime Reports"],
+    "Absence Record":["Absence Tracking","Leave Integration","Absence Reports","Pattern Analysis","Policy Compliance"],
+    "Attendance Report":["Daily Reports","Monthly Reports","Summary Reports","Analytics","Trend Analysis"],
+    "Information Request":["General Information","Process Information","Policy Information","System Information","Contact Information"],
+    "Process Clarification":["Workflow Clarification","Procedure Explanation","Step-by-Step Guide","Best Practices","Troubleshooting"],
+    "Policy Question":["HR Policies","Leave Policies","Attendance Policies","IT Policies","Administrative Policies"],
+    "System Usage":["User Guide","Feature Explanation","Best Practices","Tips and Tricks","Troubleshooting"],
+    "Training Need":["System Training","Process Training","Skill Development","Certification","Continuous Learning"],
+    "Suggestion":["Process Improvement","System Enhancement","User Experience","Efficiency","Innovation"],
+    "Improvement":["System Improvement","Process Improvement","Performance Improvement","User Experience","Feature Enhancement"],
+    "Feature Request":["New Features","Enhancement Requests","Customization","Integration","Automation"],
+    "Bug Report":["System Bug","Process Bug","Data Bug","Interface Bug","Performance Bug"],
+    "User Experience":["Interface Design","Navigation","Usability","Accessibility","User Feedback"],
+    "System Training":["Basic Training","Advanced Training","New User Training","Refresher Training","Specialized Training"],
+    "Process Training":["Workflow Training","Procedure Training","Policy Training","Compliance Training","Best Practices"],
+    "New Feature":["Feature Introduction","Feature Training","Feature Usage","Feature Benefits","Feature Support"],
+    "User Onboarding":["New User Setup","Initial Training","Account Activation","Profile Setup","Access Assignment"],
+    "Advanced Training":["Expert Training","Specialized Training","Certification Training","Leadership Training","Technical Training"],
+    "Feature Request":["New Feature Request","Enhancement Request","Customization Request","Integration Request","Automation Request"],
+    "UI Improvement":["Interface Design","User Experience","Navigation","Layout","Visual Design"],
+    "Performance":["System Performance","Response Time","Loading Speed","Efficiency","Optimization"],
+    "Integration":["System Integration","Data Integration","API Integration","Third-party Integration","Workflow Integration"],
+    "Customization":["User Customization","System Customization","Report Customization","Dashboard Customization","Workflow Customization"]
+};
+
+// Enhanced sub-section data
+const ENHANCED_SUBSECTIONS = {
+    "Authentication":["Username/Password","Biometric Authentication","Smart Card","Token Authentication","SSO Integration"],
+    "Captcha":["Image Captcha","Text Captcha","Audio Captcha","Mathematical Captcha","ReCaptcha"],
+    "OTP":["SMS OTP","Email OTP","Voice OTP","TOTP","HOTP"],
+    "Session Management":["Session Creation","Session Validation","Session Timeout","Session Renewal","Session Termination"],
+    "Password Policy":["Password Complexity","Password History","Password Expiry","Password Reset","Password Strength"],
+    "App Version":["Version Check","Version Update","Compatibility Check","Feature Availability","Bug Fixes"],
+    "Device Binding":["Device Registration","Device Verification","Device Management","Multi-device Support","Device Security"],
+    "Biometric":["Fingerprint","Face Recognition","Iris Scan","Voice Recognition","Palm Print"],
+    "Auto Login":["Remember Me","Auto Fill","Quick Login","Single Sign-On","Session Persistence"],
+    "Offline Access":["Offline Mode","Data Sync","Cache Management","Offline Forms","Offline Reports"],
+    "Email Verification":["Email Validation","Verification Link","Email Confirmation","Email Security","Email Delivery"],
+    "SMS Verification":["SMS Delivery","SMS Validation","SMS Security","SMS Rate Limiting","SMS Templates"],
+    "Security Questions":["Question Setup","Answer Validation","Security Level","Question Types","Answer Security"],
+    "Admin Reset":["Admin Access","Reset Process","Security Check","Approval Required","Audit Trail"],
+    "Self Service":["User Initiated","Self Reset","Security Validation","Process Automation","User Empowerment"],
+    "SMS OTP":["SMS Delivery","OTP Generation","OTP Validation","Rate Limiting","Security"],
+    "Email OTP":["Email Delivery","OTP Generation","OTP Validation","Email Security","Rate Limiting"],
+    "Authenticator App":["App Setup","QR Code","Manual Entry","Backup Codes","App Security"],
+    "Hardware Token":["Token Setup","Token Validation","Token Security","Token Management","Backup Token"],
+    "Backup Codes":["Code Generation","Code Usage","Code Security","Code Management","Code Expiry"],
+    "Auto Logout":["Timeout Setting","Activity Monitoring","Security Policy","User Notification","Session Cleanup"],
+    "Session Extension":["Time Extension","Activity Based","User Request","Policy Based","Security Check"],
+    "Remember Me":["Persistent Login","Security Level","Time Duration","Device Binding","User Choice"],
+    "Security Policy":["Policy Enforcement","Compliance","Audit Requirements","Security Standards","Risk Management"],
+    "Activity Tracking":["User Activity","Session Monitoring","Security Audit","Behavior Analysis","Anomaly Detection"],
+    "Version Update":["Update Check","Update Download","Update Installation","Feature Updates","Bug Fixes"],
+    "Crash Report":["Error Reporting","Crash Analysis","Bug Tracking","User Feedback","Resolution"],
+    "Performance":["Speed Optimization","Resource Usage","Memory Management","CPU Usage","Network Usage"],
+    "Compatibility":["OS Compatibility","Browser Support","Device Support","Version Support","Feature Support"],
+    "Permissions":["App Permissions","System Permissions","Data Permissions","Feature Permissions","Security Permissions"],
+    "Login Screen":["UI Design","User Experience","Accessibility","Security Features","Error Handling"],
+    "Dashboard":["Layout Design","Widget Management","Data Visualization","User Customization","Performance"],
+    "Form Screen":["Form Design","Validation","User Experience","Accessibility","Data Handling"],
+    "Report Screen":["Report Layout","Data Display","Export Options","Print Options","User Experience"],
+    "Settings Screen":["Configuration Options","User Preferences","System Settings","Security Settings","Accessibility"],
+    "RAM Usage":["Memory Allocation","Memory Optimization","Memory Leaks","Performance Monitoring","Resource Management"],
+    "Storage Space":["Disk Usage","File Management","Cache Management","Data Cleanup","Storage Optimization"],
+    "Cache Management":["Cache Strategy","Cache Invalidation","Cache Performance","Cache Security","Cache Monitoring"],
+    "Memory Leak":["Leak Detection","Memory Analysis","Performance Impact","Resolution","Prevention"],
+    "Performance":["Speed Optimization","Resource Optimization","Efficiency","Monitoring","Improvement"],
+    "Browser Support":["Chrome","Firefox","Safari","Edge","Internet Explorer"],
+    "OS Compatibility":["Windows","macOS","Linux","Android","iOS"],
+    "Device Support":["Desktop","Tablet","Mobile","Laptop","Workstation"],
+    "Version Support":["Legacy Support","Current Version","Future Version","Compatibility Matrix","Migration Path"],
+    "Feature Support":["Core Features","Advanced Features","Custom Features","Third-party Features","Integration Features"],
+    //adding last sections here 
+    "Service Book": ["Unable to view Service book","Details mismatch"],
+    "Attendance": ["Unable to view attendance","Incorrect Attendance"],
+    "Finance": ["Unable to view salary slip","Incorrect salary slip"],
+    "E-Orders": [],
+    "I-GOT": ["No training assigned","Incorrect training status"],
+    "NITI for states": [],
+    "Goi Intranet": [],
+    "Videos": ["Unable to view videos list","Unable to play video","Video play is lagging"],
+    "Leave": ["Unable to apply leaves ","Leaves not visible"],
+    "E-Office": ["Unable to connect","Unable to login"],
+    "Quick Links": [],
+    "Websites": [],
+    //select sub section from here
+    "Admin Login": ["Unable to Login","Password Change","Unable to login Parichay","Mobile Number Addition / Change","Account lock issue"],
+    "User Login": ["Unable to Login","Password Change","Unable to login Parichay","Mobile Number Addition / Change","Account lock issue"],
+    "Data Entry Operator Login": ["Unable to Login","Password Change","Unable to login Parichay","Mobile Number Addition / Change","Account lock issue"]
+};
+
+// Function to enhance the existing DROPDOWNS object
+function enhanceDropdowns() {
+    if (typeof DROPDOWNS !== 'undefined') {
+        // Merge enhanced section data
+        DROPDOWNS.section = { ...DROPDOWNS.section, ...ENHANCED_SECTIONS };
+        
+        // Merge enhanced sub-section data
+        DROPDOWNS.subSection = { ...DROPDOWNS.subSection, ...ENHANCED_SUBSECTIONS };
+        
+        console.log('Dropdown data enhanced successfully');
+    }
+}
+
+// Auto-enhance when script loads
+if (typeof window !== 'undefined') {
+    // Browser environment
+    document.addEventListener('DOMContentLoaded', enhanceDropdowns);
+} else {
+    // Node.js environment
+    enhanceDropdowns();
+}
