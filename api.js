@@ -7,8 +7,8 @@ const app = express();
 const port = 3008;
 
 const connectionString = process.env.DATABASE_URL || (() => {
-    const user = process.env.POSTGRES_USER || 'postgres';
-    const password = process.env.POSTGRES_PASSWORD || 'root@123'; // Replace with your actual password
+    const user = process.env.POSTGRES_USER || 'chatbot_aiteam';
+    const password = process.env.POSTGRES_PASSWORD || 'cia@ai17102025#'; // Replace with your actual password
     const host = process.env.POSTGRES_HOST || 'localhost';
     const port = process.env.POSTGRES_PORT || '5432';
     const database = process.env.POSTGRES_DB || 'Maha-AASTHA'; // Replace with your actual database name

@@ -130,11 +130,11 @@ MAHA_AASTHA_KNOWLEDGE_BASE = {
         "options": {"yes": "YES", "no": "NO"},
         "yes_response": {
             "intro": "You can register your Ticket on the Maha Aastha Grievance Redressal System through below link:",
-            "link": "http://172.17.46.11:8001/#grievance"
+            "link": "#grievance"
         },
         "no_response": "Thank you for using the Maha Aastha Grievance Redressal System.",
         "help_text": "Please type 'YES' or 'NO' to proceed with your query.",
-        "track_ticket_help": "You can also track your ticket status at: http://172.17.46.11:8001/#view-ticket"
+        "track_ticket_help": "You can also track your ticket status at: #view-ticket"
     },
     "mr": {
         "welcome_message": "नमस्कार, महा आस्था तक्रार निवारण प्रणाली एआय-चॅटबॉटमध्ये आपले स्वागत आहे.",
@@ -153,11 +153,11 @@ MAHA_AASTHA_KNOWLEDGE_BASE = {
         "options": {"yes": "होय", "no": "नाही"},
         "yes_response": {
             "intro": "आपण महा आस्था तक्रार निवारण प्रणालीमध्ये आपली तिकीट खालील लिंकद्वारे नोंदवू शकता:",
-            "link": "http://172.17.46.11:8001/#grievance"
+            "link": "#grievance"
         },
         "no_response": "महा आस्था तक्रार निवारण प्रणालीचा वापर केल्याबद्दल आपले धन्यवाद.",
         "help_text": "कृपया 'होय' किंवा 'नाही' टाइप करून आपल्या प्रश्नासह पुढे जा.",
-        "track_ticket_help": "आपण आपल्या तिकीटची स्थिती येथे देखील तपासू शकता: http://172.17.46.11:8001/#view-ticket"
+        "track_ticket_help": "आपण आपल्या तिकीटची स्थिती येथे देखील तपासू शकता: #view-ticket"
     }
 }
 

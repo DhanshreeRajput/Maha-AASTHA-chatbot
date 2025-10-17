@@ -17,12 +17,12 @@ class DatabaseManager:
         self.pool = None
         self.database_url = os.getenv('DATABASE_URL')
         if not self.database_url:
-            user = os.getenv('POSTGRES_USER', '')
-            password = os.getenv('POSTGRES_PASSWORD', '')
-            host = os.getenv('POSTGRES_HOST', '')
-            port = os.getenv('POSTGRES_PORT', '')
-            database = os.getenv('POSTGRES_DB', '')
-            self.database_url = f"postgresql://{user}:{password}@{host}:{port}/{database}"
+            user = os.getenv('POSTGRES_USER', 'chatbot_aiteam')
+            password = os.getenv('POSTGRES_PASSWORD', 'cia@ai17102025#')
+            host = os.getenv('POSTGRES_HOST', 'localhost')
+            port = os.getenv('POSTGRES_PORT', '5432')
+            database = os.getenv('POSTGRES_DB', 'Maha-AASTHA')
+            self.database_url = f"postgresql://postgres:root%40123@localhost:5432/Maha-AASTHA"
     
     async def save_ticket(self, form_data: dict) -> bool:
         """Save ticket from main.py form submission"""
