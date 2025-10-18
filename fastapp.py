@@ -22,11 +22,45 @@ from database import (
 )
 
 # === CONFIGURATION ===
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+LOG_FILENAME = os.path.join(os.path.dirname(__file__), 'chatbot.log')
+
+# Configure root logger with both console and rotating file handler
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
+
+# Rotating file handler (keeps logs in chatbot.log)
+try:
+    from logging.handlers import RotatingFileHandler
+    file_handler = RotatingFileHandler(LOG_FILENAME, maxBytes=5 * 1024 * 1024, backupCount=5, encoding='utf-8')
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+except Exception as e:
+    # Fallback to simple FileHandler if RotatingFileHandler not available for some reason
+    fh = logging.FileHandler(LOG_FILENAME, encoding='utf-8')
+    fh.setLevel(logging.INFO)
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
+logger.propagate = False
+
+# Helper to log chat interactions in a consistent format
+def log_chat(session_id: Optional[str], user_input: str, assistant_reply: str, language: str = 'en', endpoint: str = '/query/'):
+    """Write a concise single-line log for each chat interaction."""
+    try:
+        sid = session_id if session_id else 'N/A'
+        # Keep the logged lines compact but informative
+        logger.info(f"[CHAT] endpoint={endpoint} session_id={sid} language={language} user_input={user_input} assistant_reply={assistant_reply}")
+    except Exception as e:
+        logger.error(f"Failed to write chat log: {e}")
 
 RATE_LIMIT_SECONDS = 2
 SUPPORTED_LANGUAGES = ["en", "mr"]
@@ -780,6 +814,8 @@ async def process_query(request: QueryRequest):
         SYSTEM_STATUS["successful_queries"] += 1
         reply_text = greeting_reply(language, greet_key)
         add_to_chat_history(session_id, input_text, reply_text, language)
+        # Log the greeting interaction
+        log_chat(session_id, input_text, reply_text, language, endpoint='/query/')
         return {
             "reply": reply_text,
             "language": language,
@@ -791,6 +827,8 @@ async def process_query(request: QueryRequest):
         assistant_reply = await process_maha_aastha_query(input_text, session_id, language)
         SYSTEM_STATUS["successful_queries"] += 1
         add_to_chat_history(session_id, input_text, assistant_reply, language)
+        # Log the query + assistant reply
+        log_chat(session_id, input_text, assistant_reply, language, endpoint='/query/')
         return {
             "reply": assistant_reply,
             "language": language,
@@ -827,6 +865,8 @@ async def get_ticket_status_endpoint(request: TicketStatusRequest):
             
             formatted_status = format_simple_ticket_status(ticket_data, request.language)
             logger.info(f"Formatted status message: {formatted_status}")
+            # Log ticket status lookup
+            log_chat(None, f"ticket_status_lookup:{request.ticket_id}", formatted_status, request.language, endpoint='/ticket/status/')
             
             return JSONResponse(
                 content={
@@ -856,6 +896,7 @@ async def get_ticket_status_endpoint(request: TicketStatusRequest):
                 }
             
             logger.warning(f"No ticket found with {identifier_type}: {request.ticket_id}")
+            log_chat(None, f"ticket_status_lookup:{request.ticket_id}", error_msg.get(request.language, error_msg['en']), request.language, endpoint='/ticket/status/')
             return JSONResponse(
                 status_code=404,
                 content={
@@ -965,6 +1006,8 @@ async def submit_rating(request: RatingRequest):
                 f"{thank_you_msg}\n\n{response_msg.get(request.language, response_msg['en'])}",
                 request.language
             )
+            # Log rating submission
+            log_chat(session_id, f"rating:{request.rating}", response_msg.get(request.language, response_msg['en']), request.language, endpoint='/rating/')
             return JSONResponse(
                 status_code=200,
                 content={
